@@ -1,0 +1,20 @@
+from fastapi import APIRouter
+from app.api.routes.auth import router as auth_router
+from app.api.routes.admin import router as admin_router
+from app.api.routes.chat import router as chat_router
+from app.api.routes.health import router as health_router
+from app.api.routes.ingestion import router as ingestion_router
+from app.api.routes.memory import router as memory_router
+from app.api.routes.feedback import router as feedback_router
+from app.api.routes.escalation import router as escalation_router
+
+api_router = APIRouter(prefix="/api/v1")
+api_router.include_router(health_router)
+api_router.include_router(auth_router)
+api_router.include_router(admin_router)
+api_router.include_router(chat_router)
+api_router.include_router(ingestion_router)
+api_router.include_router(memory_router)
+api_router.include_router(feedback_router)
+api_router.include_router(escalation_router)
+
